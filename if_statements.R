@@ -1,5 +1,7 @@
 # If statements
 # Sanctified
+# if x is smaller or equal to zero, return -sqrt(x)
+# otherwise return sqrt(x)
 y <- if (x > 0) sqrt(x) else -sqrt(x)
 y <- sign(x) * sqrt(x)
 
