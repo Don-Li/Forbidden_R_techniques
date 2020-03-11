@@ -1,5 +1,4 @@
-#####compile_forbidden_rituals.R#####
-
+##### compile_forbidden_rituals.R #####
 file.remove("Forbidden_techniques.txt")
 
 R_files = list.files(pattern = ".R")
@@ -7,15 +6,14 @@ R_files = R_files[ !grepl( ".Rproj", R_files ) ]
 
 file_ = R_files[1]
 for ( file_ in R_files ){
-    text_ = paste0( "#####", file_, "#####\n" )
+    text_ = paste0( "##### ", file_, " #####" )
     text_ = c( text_, suppressWarnings( readLines( file_ ) ) )
     text_ = c( text_, "########\n" )
     cat( text_, file = "Forbidden_techniques.txt", append = TRUE, sep = "\n")
 }
 ########
 
-#####if_statements.R#####
-
+##### if_statements.R #####
 # If statements
 # Sanctified
 y <- if (x > 0) sqrt(x) else -sqrt(x)
@@ -35,5 +33,27 @@ y <- if ( grepl( "-", as.character(x) ) ){
     } else{
         sqrt(x)
     }
+########
+
+##### making_vector_from_0_to_10.R #####
+# Making a vector containing 0 to 10
+# Sanctified
+x = 0:10
+
+# Novice
+x = seq( 0, 10, by = 1 )
+
+# Cursed
+x = rep( 0, 11 )
+for ( i in 0:10 ){
+    x[i+1] = i
+}
+
+# Void touched
+letters_  = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "k")
+x = rep( 0, 11 )
+for ( letter_ in letters_ ){
+    x[sum( letter_ > letters_ )+1] = sum( letter_ > letters_ )
+}
 ########
 
