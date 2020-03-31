@@ -13,9 +13,28 @@ for ( file_ in R_files ){
 }
 ########
 
+##### floating_comparisons.R #####
+# Floating point comparisons
+# Compare two floats, x, and y
+
+# Sanctified
+abs( x - y ) < tolerance
+
+# Novice
+x == y
+
+# Cursed
+round( x, 1000 ) == round( y, 1000 )
+
+# Void-touched
+as.character(x) == as.character(y)
+########
+
 ##### if_statements.R #####
 # If statements
 # Sanctified
+# if x is smaller or equal to zero, return -sqrt(x)
+# otherwise return sqrt(x)
 y <- if (x > 0) sqrt(x) else -sqrt(x)
 y <- sign(x) * sqrt(x)
 
